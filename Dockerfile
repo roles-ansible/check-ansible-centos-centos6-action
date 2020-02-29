@@ -9,15 +9,16 @@ LABEL "com.github.actions.description"="Check ansible role or playbook with Cent
 LABEL "com.github.actions.icon"="aperture"
 LABEL "com.github.actions.color"="green"
 
-RUN yum update --assumeyes && yum install --assumeyes epel-release
+RUN yum update --assumeyes
+RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 
 RUN yum install --assumeyes python \
     python-pip \
-    git
-
-RUN pip install setuptools && pip install ansible
+    git \
+    ansible
 
 RUN ansible --version
+RUN python --version
 
 ADD ansible-docker.sh /ansible-docker.sh
 ENTRYPOINT ["/ansible-docker.sh"]
