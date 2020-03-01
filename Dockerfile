@@ -19,6 +19,8 @@ RUN yum install --assumeyes python-devel \
     git \
     ansible
 
+RUN pip install --upgrade setuptools && pip install urllib3 pyOpenSSL ndg-httpsclient pyasn1
+
 RUN ansible --version
 RUN python --version
 
