@@ -27,7 +27,7 @@ RUN /usr/local/bin/python2.7 -V
 RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 RUN python2.7 get-pip.py
 
-RUN pip install --upgrade setuptools && pip install ansible urllib3 pyOpenSSL ndg-httpsclient pyasn1
+RUN pip install setuptools ansible urllib3 pyOpenSSL ndg-httpsclient pyasn1
 
 RUN ansible --version
 RUN python --version
