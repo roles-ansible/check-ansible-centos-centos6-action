@@ -12,8 +12,6 @@ LABEL "com.github.actions.color"="green"
 RUN yum update --assumeyes
 RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 
-RUN yum install --assumeyes http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-
 RUN yum install --assumeyes libffi-devel \
     openssl-devel \
     git gcc \
