@@ -12,22 +12,14 @@ LABEL "com.github.actions.color"="green"
 RUN yum update --assumeyes
 RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 
+RUN yum install --assumeyes http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+
 RUN yum install --assumeyes libffi-devel \
     openssl-devel \
     git gcc \
     bzip2-devel \
-    wget
-
-RUN cd /usr/src && wget https://www.python.org/ftp/python/2.7.16/Python-2.7.16.tgz && tar xzf Python-2.7.16.tgz
-
-RUN cd /usr/src/Python-2.7.16 && ./configure --enable-optimizations && make altinstall
-
-RUN /usr/local/bin/python2.7 -V
-
-RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-RUN python2.7 get-pip.py
-
-RUN pip install setuptools ansible urllib3 pyOpenSSL ndg-httpsclient pyasn1
+    wget \
+    ansible
 
 RUN ansible --version
 RUN python --version
