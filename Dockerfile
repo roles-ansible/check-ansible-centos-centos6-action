@@ -9,8 +9,9 @@ LABEL "com.github.actions.description"="Check ansible role or playbook with Cent
 LABEL "com.github.actions.icon"="aperture"
 LABEL "com.github.actions.color"="green"
 
+ADD CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo
 RUN yum update --assumeyes
-RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+RUN rpm -ivh https://archives.fedoraproject.org/pub/archive/epel/6/x86_64/epel-release-6-8.noarch.rpm
 
 RUN yum install --assumeyes libffi-devel \
     openssl-devel \
